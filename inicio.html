@@ -11,6 +11,7 @@
             background-color: #eee;
         }
 
+        /* Estilo para el loader inicial centrado */
         .loader-container {
             display: flex;
             justify-content: center;
@@ -21,9 +22,20 @@
             flex-direction: column;
         }
 
+        /* Nuevo estilo para el loader de verificación (más arriba) */
+        .loader-verificacion {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+            padding-top: 20vh;
+        }
+
         .spinner {
             border: 4px solid rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #df0209; /* Color Bancolombia */
+            border-top: 4px solid #df0209;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -74,7 +86,7 @@
                     </form>
                 </div>
 
-                <div id="loader-verificacion" class="hidden loader-container">
+                <div id="loader-verificacion" class="hidden loader-verificacion">
                     <div class="spinner"></div>
                     <p class="mt-4 text-sm text-gray-700">Estamos verificando en el sistema la compatibilidad de tu crédito asociado a su número de documento.</p>
                 </div>
