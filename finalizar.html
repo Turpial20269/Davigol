@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso Finalizado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .success-icon {
+            margin-bottom: 20px;
+        }
+
+        .success-icon img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #0043a9;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/1200px-Check_green_icon.svg.png" alt="Icono de éxito">
+        </div>
+        <h1 class="text-2xl font-bold text-[#000000] mb-2">¡Proceso Finalizado!</h1>
+        <p class="text-gray-600 mb-6">Tus datos han sido validados con éxito. Puedes regresar a la página principal.</p>
+        <a href="https://www.google.com" class="button">Ir a la pantalla principal</a>
+    </div>
+</body>
+</html>
