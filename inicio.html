@@ -98,11 +98,7 @@
             const creditoAprobado = document.getElementById('credito-aprobado');
             const cedulaForm = document.getElementById('cedulaForm');
 
-            // Mostrar el primer loader por 3 segundos
-            setTimeout(() => {
-                loaderConfig.classList.add('hidden');
-                appContainer.classList.remove('hidden');
-            }, 5000);
+            
 
             // Validar que el input no esté vacío
             cedulaInput.addEventListener('input', () => {
